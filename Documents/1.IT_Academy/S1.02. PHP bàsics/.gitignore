@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# PHP Composer
+/vendor/
+
+# Logs & cache
+*.log
+cache/
