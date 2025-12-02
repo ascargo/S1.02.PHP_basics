@@ -1,25 +1,27 @@
 <?php
-function countingApp($endNumber = 10, $countingIncrements = 1) {
-    $currentNumber = 0;
+declare(strict_types=1);
 
-        while ($currentNumber + $countingIncrements <= $endNumber) {
-            echo $currentNumber . ", ";
-            $currentNumber += $countingIncrements;
-        }
-//As the programme does not count until exactly the end number, we need to print the end number if it was not reached in the loop.
-        if($currentNumber != $endNumber) {
-            echo $endNumber . ".";
-        } else {
-            echo $currentNumber . ".";
-        }
+function countTo(int $endNumber = 10, int $countingIncrements = 1): void
+{
+    if ($countingIncrements <= 0) {
+        echo "Increments should be positive numbers. I.e. -5 is not allowed.";
+        return;
     }
 
-countingApp(50, 6);
+    $currentNumber = 0;
+
+    do {
+        echo $currentNumber >= $endNumber ? $endNumber. "." : $currentNumber . ",";
+        $currentNumber += $countingIncrements;
+    } while ($currentNumber < $endNumber);
+}
+
+countTo(50, 6);
 echo "<br>";
 
-countingApp(6);
+countTo(6);
 echo "<br>";
 
-countingApp();
- echo "<br>";
+countTo();
+echo "<br>";
 ?>

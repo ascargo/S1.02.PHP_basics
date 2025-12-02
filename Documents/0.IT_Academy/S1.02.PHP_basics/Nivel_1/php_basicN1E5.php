@@ -1,20 +1,23 @@
 <?php
-function grading($percentageMark) {
-    if ($percentageMark >=60) {
-        echo "You have achieved a First Class (1:1) degree.<br>";
-    } elseif ($percentageMark >=45) {
-        echo "You have achieved a Second Class (2:1) degree.<br>";
-    } elseif ($percentageMark >=33) {
-        echo "You have achieved a Third Class (3:1) degree.<br>";
-    } elseif ($percentageMark < 33) {
-        echo "You have failed the course.<br>";
-    } else {
-        echo "Invalid percentage mark.<br>";
+
+declare(strict_types=1);
+
+function gradeStudent(float $percentage): string
+{
+    if ($percentage >= 60) {
+        return "First Class (1:1)";
     }
+    if ($percentage >= 45) {
+        return "Second Class (2:1)";
+    }
+    if ($percentage >= 33) {
+        return "Third Class (3:1)";
+    }
+    return "You have failed the course";
 }
-grading(75);
-grading(28);
-grading(53);
-grading(45);
-grading(99);
-?>
+
+echo gradeStudent(75) . "<br>";
+echo gradeStudent(28) . "<br>";
+echo gradeStudent(53) . "<br>";
+echo gradeStudent(45) . "<br>";
+echo gradeStudent(99) . "<br>";
